@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Google Book</string>
+    <string name="search_hint">Tìm kiếm</string>
 </resources>

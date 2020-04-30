@@ -42,7 +42,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
         mProgressDialog?.dismiss()
     }
 
-    private fun performDataBinding() {
+    open fun performDataBinding() {
         viewDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
         viewDataBinding.setVariable(getBindingVariable(), viewModel)
         viewDataBinding.executePendingBindings()
