@@ -9,14 +9,10 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-abstract class CallbackWrapper<Response : BaseResponse> : DisposableObserver<Response>() {
+abstract class CallbackWrapper<Response> : DisposableObserver<Response>() {
 
     override fun onNext(@NonNull response: Response) {
-        if (response.code == 200) {
-            onSuccess(response)
-        } else {
-            onError(response.code, response.message)
-        }
+        onSuccess(response)
     }
 
     override fun onError(@NonNull e: Throwable) {

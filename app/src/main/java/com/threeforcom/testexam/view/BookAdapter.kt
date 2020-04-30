@@ -10,7 +10,7 @@ import com.threeforcom.testexam.databinding.ItemBookBinding
 import com.threeforcom.testexam.utils.BindableAdapter
 
 
-class BookAdapter(val onClickItem: ((item: BookEntity) -> Unit)) :
+class BookAdapter(val onClickItem: ((item: BookEntity) -> Unit),val clickFavorite: ((item: BookEntity) -> Unit)) :
     RecyclerView.Adapter<BookAdapter.BookHolder>(),
     BindableAdapter<List<BookEntity>>, BookDelegate {
     var bookList = emptyList<BookEntity>()
@@ -50,7 +50,7 @@ class BookAdapter(val onClickItem: ((item: BookEntity) -> Unit)) :
     }
 
     override fun onClickFavorite(bookItem: BookEntity) {
-
+        clickFavorite(bookItem)
     }
 
 }

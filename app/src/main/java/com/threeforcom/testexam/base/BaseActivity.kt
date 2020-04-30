@@ -1,7 +1,12 @@
 package com.threeforcom.testexam.base
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -27,8 +32,14 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.onCreate()
         performDataBinding()
         performObservable()
+        initEvent()
+    }
+
+    open fun initEvent(){
+
     }
 
     protected fun showLoading() {
@@ -38,7 +49,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
         mProgressDialog!!.show()
     }
 
-    protected fun hideLoading(){
+    protected fun hideLoading() {
         mProgressDialog?.dismiss()
     }
 
@@ -60,5 +71,21 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
             }
 
         })
+    }
+
+    fun showToast(mess: String) {
+        Toast.makeText(this, mess, Toast.LENGTH_SHORT).show()
+    }
+
+    fun showToast(res: Int, isDebug: Boolean? = false) {
+        Toast.makeText(this, getString(res), Toast.LENGTH_SHORT).show()
+        if (isDebug == true)
+            Log.e("", getString(res))
+    }
+
+    fun isNetworkAvailable(): Boolean {
+        val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
+        return networkInfo?.isConnected == true
     }
 }
