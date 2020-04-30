@@ -4,6 +4,7 @@ import com.threeforcom.testexam.data.local.BookDAO
 import com.threeforcom.testexam.data.local.BookEntity
 import com.threeforcom.testexam.data.rest.ApiServices
 import com.threeforcom.testexam.data.rest.response.BookListResponse
+import com.threeforcom.testexam.model.BookModel
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
@@ -12,7 +13,10 @@ class BookRepository @Inject constructor(
     private val apiServices: ApiServices,
     private val bookDAO: BookDAO
 ) {
-    fun searchBook(keySearch: String = "", isLocalSearch: Boolean = true): Observable<List<BookEntity>> {
+    fun searchBook(
+        keySearch: String = "",
+        isLocalSearch: Boolean = true
+    ): Observable<List<BookEntity>> {
         return if (isLocalSearch) {
             bookDAO.searchBookObs(keySearch)
         } else {
@@ -27,6 +31,10 @@ class BookRepository @Inject constructor(
                 }
             )
         }
+    }
+
+    fun getDetailBook(id: String): Observable<BookModel> {
+        return apiServices.getDetailBook(id)
     }
 
     fun updateFavoriteBook(bookEntity: BookEntity): Observable<BookEntity> {

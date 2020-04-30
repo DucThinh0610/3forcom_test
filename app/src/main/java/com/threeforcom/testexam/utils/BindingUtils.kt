@@ -16,6 +16,6 @@ fun <T> setRecyclerViewData(recyclerView: RecyclerView, data: T) {
 }
 
 @BindingAdapter("imv_url")
-fun loadImageFromURL(imageView: ImageView, url: String) {
+fun loadImageFromURL(imageView: ImageView, url: String?) {
     ImageLoader.load(url, imageView)
 }

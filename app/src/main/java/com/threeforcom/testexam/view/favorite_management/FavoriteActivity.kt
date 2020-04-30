@@ -9,8 +9,9 @@ import com.threeforcom.testexam.MainApplication
 import com.threeforcom.testexam.R
 import com.threeforcom.testexam.base.BaseActivity
 import com.threeforcom.testexam.databinding.ActivityFavoriteBinding
-import com.threeforcom.testexam.view.BookAdapter
-import com.threeforcom.testexam.view.BookViewModel
+import com.threeforcom.testexam.view.list.BookAdapter
+import com.threeforcom.testexam.view.list.BookViewModel
+import com.threeforcom.testexam.view.detail.DetailBookActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding, BookViewModel>() 
         super.onCreate(savedInstanceState)
         val adapterBook = BookAdapter({
             if (isNetworkAvailable()) {
-
+                DetailBookActivity.startActivity(this, it.id)
             } else {
                 showToast("Need network to get the detail!!")
             }

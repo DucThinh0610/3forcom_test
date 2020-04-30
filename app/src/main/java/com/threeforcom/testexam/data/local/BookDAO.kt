@@ -13,6 +13,9 @@ interface BookDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg books: BookEntity) : Completable
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertItem(books: BookEntity)
+
     @Update
     fun updateFavoriteItem(bookEntity: BookEntity): Completable
 

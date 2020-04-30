@@ -6,7 +6,7 @@
 
         <variable
             name="bookVM"
-            type="com.threeforcom.testexam.view.BookViewModel" />
+            type="com.threeforcom.testexam.view.list.BookViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

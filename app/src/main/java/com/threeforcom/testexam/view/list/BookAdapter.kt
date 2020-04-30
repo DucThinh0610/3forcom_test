@@ -1,4 +1,4 @@
-package com.threeforcom.testexam.view
+package com.threeforcom.testexam.view.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,8 @@ import com.threeforcom.testexam.utils.BindableAdapter
 
 class BookAdapter(val onClickItem: ((item: BookEntity) -> Unit),val clickFavorite: ((item: BookEntity) -> Unit)) :
     RecyclerView.Adapter<BookAdapter.BookHolder>(),
-    BindableAdapter<List<BookEntity>>, BookDelegate {
+    BindableAdapter<List<BookEntity>>,
+    BookDelegate {
     var bookList = emptyList<BookEntity>()
 
     inner class BookHolder(private val bookBinding: ItemBookBinding) :

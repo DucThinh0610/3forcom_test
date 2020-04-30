@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".view.BookListActivity">
+        <activity android:name=".view.list.BookListActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +27,7 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".view.favorite_management.FavoriteActivity" />
+        <activity android:name=".view.detail.DetailBookActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.threeforcom.testexam.view
+package com.threeforcom.testexam.view.list
 
 import android.util.Log
 import androidx.databinding.ObservableField

@@ -4,11 +4,15 @@
 
     <data>
 
+        <variable
+            name="detailVM"
+            type="com.threeforcom.testexam.view.detail.BookDetailViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -31,13 +35,67 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:text="Favorites"
+                    android:maxLines="2"
+                    android:text="@{detailVM.bookDetail.volumeInfo.title}"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    imv_url="@{detailVM.bookDetail.volumeInfo.imageLinks.thumbnail}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{`Title:` + detailVM.bookDetail.volumeInfo.title}"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{`` + detailVM.bookDetail.saleInfo.listPrice.amount + ` ` +detailVM.bookDetail.saleInfo.listPrice.currencyCode}"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{`Publisher:` + detailVM.bookDetail.volumeInfo.publisher}"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{`Description:` + detailVM.bookDetail.volumeInfo.description}"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </layout>

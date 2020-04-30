@@ -10,7 +10,7 @@
 
         <variable
             name="delegate"
-            type="com.threeforcom.testexam.view.BookDelegate" />
+            type="com.threeforcom.testexam.view.list.BookDelegate" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
