@@ -8,6 +8,7 @@ import com.threeforcom.testexam.MainApplication
 import com.threeforcom.testexam.R
 import com.threeforcom.testexam.base.BaseActivity
 import com.threeforcom.testexam.databinding.ActivityListBookBinding
+import com.threeforcom.testexam.utils.fromView
 import com.threeforcom.testexam.view.detail.DetailBookActivity
 import com.threeforcom.testexam.view.favorite_management.FavoriteActivity
 import io.reactivex.disposables.Disposable
